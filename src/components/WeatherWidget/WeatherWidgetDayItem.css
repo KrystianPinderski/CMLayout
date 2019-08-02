@@ -1,0 +1,21 @@
+.DayItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.DayItem img{
+    width: 65px;
+    height: 70px;
+}
+
+.DayItem div{
+    display: flex;
+    flex-direction: row;
+}
+
+.DayItem div p{
+    margin:0px 5px;
+}

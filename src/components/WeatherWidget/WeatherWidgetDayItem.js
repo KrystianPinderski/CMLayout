@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {toFarenheit} from '../toFarenheit';
 import {weatherImageItem} from './getWeatherImage';
+import './WeatherWidgetDayItem.css'
 var moment = require('moment');
 class WeatherWidgetDayItem extends Component {
     render() {

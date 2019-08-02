@@ -8,28 +8,6 @@ p{
     display: none;
 }
 
-.DayItem{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-}
-
-.DayItem img{
-    width: 65px;
-    height: 70px;
-}
-
-.DayItem div{
-    display: flex;
-    flex-direction: row;
-}
-
-.DayItem div p{
-    margin:0px 5px;
-}
-
 .WeatherWidgetDay{
     display: flex;
     flex-direction: row;
@@ -83,30 +61,6 @@ p{
     justify-content: flex-start;
     align-content: flex-start;
     margin:0px auto;
-}
-
-.WeatherWidgetItem{
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    flex-direction: row;
-    box-shadow: 1px 1px 1px rgba(124, 124, 124, 0.5);
-    max-width: 100%;
-    padding:10px 20px;
-}
-
-.WeatherWidgetItem p:only-of-type:not(:last-child){
-    width:30%;
-    font-weight: 600;
-}
-
-.WeatherWidgetItem span:first-of-type{
-    font-weight: 600;
-}
-
-.WeatherWidgetItem span:last-of-type{
-    color:grey;
 }
 
 .ItemBody{

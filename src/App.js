@@ -6,7 +6,7 @@ class App extends Component {
     return (
       <div className="App">
         <WeatherWidget />
-        <WeatherWidget />
+        {/* <WeatherWidget />*/}
       </div>
     )
   }

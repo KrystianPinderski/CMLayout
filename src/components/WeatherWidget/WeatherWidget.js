@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import ApiHandler from '../../API/ApiHandler';
 import './WeatherWidget.css';
-import {toFarenheit} from '../toFarenheit';
-import {weatherImage} from './getWeatherImage';
+/* @return Temp to Farenheit */
+import { toFarenheit } from '../toFarenheit';
+/* @return image depending on API response */
+import { weatherImage } from './getWeatherImage';
 import WeatherWidgetDayItem from './WeatherWidgetDayItem';
 import AppDropdown from '../AppDropdown';
 import VerticalDayItem from './VerticalDayItem';
 var moment = require('moment');
+
 class WeatherWidget extends Component {
     constructor(props) {
         super(props)
@@ -17,7 +20,6 @@ class WeatherWidget extends Component {
             errMessage: "Sth goes wrong.",
             choosenCity: [],
             cityWeather: '',
-            dropdownOpen: false
         }
     }
     async componentDidMount() {
@@ -39,18 +41,14 @@ class WeatherWidget extends Component {
                 this.setState({
                     cityWeather
                 })
+            }).catch(err => {
+                this.setState({
+                    loading: false,
+                    err: true
+                })
+                throw err
             })
 
-    }
-    handleOpen = () => {
-        if (this.state.dropdownOpen) {
-            this.setState({
-                dropdownOpen: false
-            })
-        }
-        this.setState({
-            dropdownOpen: true
-        })
     }
     async setChoosenCity(value) {
         this.setState({
@@ -65,11 +63,11 @@ class WeatherWidget extends Component {
             })
     }
     render() {
-        const { cityWeather, cityList, loading } = this.state
+        const { cityWeather, cityList, loading ,err,errMessage} = this.state
         let weather = cityWeather ? cityWeather[0] : []
         return (
             <div>
-                {loading ? <div>Loading...</div> :
+                {loading ? <div>Loading...</div> :err?<div><h1>{errMessage}</h1></div>:
                     <div>
                         <div className="WeatherWidgetHeader">
                             <div className="WeatherWidgetTitle">
@@ -103,7 +101,6 @@ class WeatherWidget extends Component {
                         {this.state.cityWeather ? this.state.cityWeather.map((oneDayWeather, index) =>
                             <VerticalDayItem key={index} weather={oneDayWeather} index={index} />
                         ) : null}
-
                     </div>
                 }
             </div>

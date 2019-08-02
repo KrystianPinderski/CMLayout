@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {toFarenheit} from '../toFarenheit';
 import {weatherImageItem} from './getWeatherImage';
+import './VerticalDayItem.css'
 var moment = require('moment');
 
 export default class VerticalDayItem extends Component {

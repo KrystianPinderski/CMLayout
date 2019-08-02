@@ -1,0 +1,30 @@
+
+.WeatherWidgetItem{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 1px 1px 1px rgba(124, 124, 124, 0.5);
+    max-width: 100%;
+    padding:10px 20px;
+}
+
+.WeatherWidgetItem p:only-of-type:not(:last-child){
+    width:30%;
+    font-weight: 600;
+}
+
+.WeatherWidgetItem span:first-of-type{
+    font-weight: 600;
+}
+
+.WeatherWidgetItem span:last-of-type{
+    color:grey;
+}
+
+@media only screen and (min-width: 641px) {
+    .WeatherWidgetItem{
+        display: none;
+    }
+}
