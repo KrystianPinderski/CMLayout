@@ -1,0 +1,212 @@
+p{
+    margin:0px;
+    padding:0px;
+    font-size: 14px;
+}
+
+.WeatherWidgetDaysContainer{
+    display: none;
+}
+
+.DayItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.DayItem img{
+    width: 65px;
+    height: 70px;
+}
+
+.DayItem div{
+    display: flex;
+    flex-direction: row;
+}
+
+.DayItem div p{
+    margin:0px 5px;
+}
+
+.WeatherWidgetDay{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.WeatherWidgetHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    box-shadow: 1px 1px 1px rgba(68, 68, 68, 0.5);
+    max-width: 100%;
+    flex-direction: column;
+    padding:10px 20px;
+}
+
+
+.WeatherWidgetTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+.WeatherWidgetBody{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.WeatherWidgetBody__left{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: inherit;
+}
+
+.WeatherWidgetBody__left p:first-of-type{
+    font-size:36px;
+}
+
+.WeatherWidgetBody__left p:last-of-type{
+    margin:6px 2px;
+    font-size: 16px;
+}
+
+.WeatherWidgetBody__right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin:0px auto;
+}
+
+.WeatherWidgetItem{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 1px 1px 1px rgba(124, 124, 124, 0.5);
+    max-width: 100%;
+    padding:10px 20px;
+}
+
+.WeatherWidgetItem p:only-of-type:not(:last-child){
+    width:30%;
+    font-weight: 600;
+}
+
+.WeatherWidgetItem span:first-of-type{
+    font-weight: 600;
+}
+
+.WeatherWidgetItem span:last-of-type{
+    color:grey;
+}
+
+.ItemBody{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    max-width: 100%;
+    min-width: 70%
+}
+
+.ItemBody img{
+    width: 50px;
+    height: 55px;
+}
+
+.ItemBody div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    max-width:50px
+}
+
+.ItemBody span{
+    display: none;
+}
+
+.ItemBody p:last-of-type{
+    max-width:50px;
+    text-align: center;
+    color:grey;
+}
+
+.ItemBody p:first-of-type:not(:last-child){
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 380px) {
+    p{
+        font-size:17px;
+    }
+
+    .selectdiv select{
+        font-size: 50px;
+    }
+
+    .WeatherWidgetBody__left p:first-of-type{
+        font-size:50px;
+    }
+    
+}
+
+@media only screen and (min-width: 420px) {
+    .ItemBody p:last-of-type{
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 460px) {
+    .ItemBody div{
+        display: none;
+    }
+
+    .ItemBody span{
+        display: block;
+        font-size:17px;
+    }
+    
+    .ItemBody img{
+        width: 60px;
+        height: 65px;
+    }
+}
+
+@media only screen and (min-width: 641px) {
+    .WeatherWidgetHeader{
+        max-width:641px;
+        margin:5px 0px 0px 5px;
+    }
+
+    .WeatherWidgetItem{
+        display: none;
+    }
+
+    .WeatherWidgetDaysContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        margin:25px 15px 0px 15px;
+    }
+
+    .WeatherWidgetDaysContainer p:first-of-type{
+        font-weight: 600;
+    }
+
+    .WeatherWidgetDaysContainer p:not(:first-of-type){
+        color:grey;
+    }
+}
+

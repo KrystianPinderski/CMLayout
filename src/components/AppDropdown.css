@@ -1,0 +1,19 @@
+
+.selectdiv {
+    position: relative;
+    min-width: 200px;
+}
+  
+.selectdiv select {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    background-color: white;
+    border: none;
+    font-size: 44px;
+    font-weight: 400;
+    word-break: normal;
+}
+  .selectdiv select option{
+      font-size: 24px
+}
