@@ -63,11 +63,11 @@ class WeatherWidget extends Component {
             })
     }
     render() {
-        const { cityWeather, cityList, loading ,err,errMessage} = this.state
+        const { cityWeather, cityList, loading, err, errMessage } = this.state
         let weather = cityWeather ? cityWeather[0] : []
         return (
             <div>
-                {loading ? <div>Loading...</div> :err?<div><h1>{errMessage}</h1></div>:
+                {loading ? <div>Loading...</div> : err ? <div><h1>{errMessage}</h1></div> :
                     <div>
                         <div className="WeatherWidgetHeader">
                             <div className="WeatherWidgetTitle">
@@ -77,10 +77,7 @@ class WeatherWidget extends Component {
                             </div>
                             <div className="WeatherWidgetBody">
                                 <div className="WeatherWidgetBody__left">
-                                    <img src={weatherImage(cityWeather)}
-                                        alt="This is it"
-                                        width="80"
-                                        height="80">
+                                    <img src={weatherImage(cityWeather)} alt="This is it">
                                     </img>
                                     <p>{toFarenheit(weather.temperature)}</p>
                                     <p>&#x2109;</p>

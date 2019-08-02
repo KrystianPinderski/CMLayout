@@ -45,6 +45,10 @@ p{
     justify-content: flex-start;
     align-items: inherit;
 }
+.WeatherWidgetBody__left img{
+    width: 80px;
+    height: 80px;
+}
 
 .WeatherWidgetBody__left p:first-of-type{
     font-size:36px;
