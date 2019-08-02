@@ -5,6 +5,7 @@
 }
   
 .selectdiv select {
+    appearance: none;
     display: block;
     width: 100%;
     max-width: 320px;

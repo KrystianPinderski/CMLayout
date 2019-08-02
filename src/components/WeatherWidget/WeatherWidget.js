@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
-import ApiHandler from '../API/ApiHandler';
+import ApiHandler from '../../API/ApiHandler';
 import './WeatherWidget.css';
-/* Weather Images */
-import Cloudy from '../assets/cloudy.png'
-import RainLight from '../assets/rain_light.png'
-import PartlyCloudy from '../assets/partly_cloudy.png'
-import Sunny from '../assets/sunny.png'
-import RainAndCloudy from '../assets/rain_s_cloudy.png'
-
+import {toFarenheit} from '../toFarenheit';
+import {weatherImage} from './getWeatherImage';
 import WeatherWidgetDayItem from './WeatherWidgetDayItem';
-import AppDropdown from './AppDropdown';
+import AppDropdown from '../AppDropdown';
 import VerticalDayItem from './VerticalDayItem';
 var moment = require('moment');
 class WeatherWidget extends Component {
@@ -58,7 +53,6 @@ class WeatherWidget extends Component {
         })
     }
     async setChoosenCity(value) {
-        console.log("Value", value)
         this.setState({
             choosenCity: value,
             dropdownOpen: false
@@ -70,24 +64,9 @@ class WeatherWidget extends Component {
                 })
             })
     }
-    toFarenheit() {
-        const { cityWeather } = this.state
-        let celcius = cityWeather ? cityWeather[0].temperature : 0
-        let farenheit = (celcius * 1.8) + 32
-        farenheit = parseInt(farenheit)
-        return farenheit
-    }
     render() {
         const { cityWeather, cityList, loading } = this.state
-        let Weather = cityWeather ? cityWeather[0] : []
-        let weatherImage = cityWeather ?
-            cityWeather[0].type === "RainAndCloudy" ? RainAndCloudy
-                : cityWeather[0].type === "RainLight" ? RainLight
-                    : cityWeather[0].type === "Cloudy" ? Cloudy
-                        : cityWeather[0].type === "Sunny" ? Sunny
-                            : PartlyCloudy
-            : Sunny
-        console.log(cityWeather)
+        let weather = cityWeather ? cityWeather[0] : []
         return (
             <div>
                 {loading ? <div>Loading...</div> :
@@ -95,30 +74,24 @@ class WeatherWidget extends Component {
                         <div className="WeatherWidgetHeader">
                             <div className="WeatherWidgetTitle">
                                 <AppDropdown cityList={cityList} onClick={(city) => this.setChoosenCity(city)} />
-                                <p>
-                                    {
-                                        `${moment(Weather.date).format("dddd")}`
-                                        + ", "
-                                        + `${moment(Weather.date).format("MMMM Do")}`
-                                    }
-                                </p>
-                                <p>{Weather.type}</p>
+                                <p>{`${moment(weather.date).format("dddd")}, ${moment(weather.date).format("MMMM Do")}`}</p>
+                                <p>{weather.type}</p>
                             </div>
                             <div className="WeatherWidgetBody">
                                 <div className="WeatherWidgetBody__left">
-                                    <img src={weatherImage}
+                                    <img src={weatherImage(cityWeather)}
                                         alt="This is it"
                                         width="80"
                                         height="80">
                                     </img>
-                                    <p>{this.toFarenheit()}</p>
+                                    <p>{toFarenheit(weather.temperature)}</p>
                                     <p>&#x2109;</p>
                                 </div>
                                 <div className="WeatherWidgetBody__right">
-                                    <p>Precipitation: {Weather.precipitation}%</p>
-                                    <p>Humidity: {Weather.humidity}%</p>
-                                    <p>Wind: {Weather.windInfo ? Weather.windInfo.speed : 0} mph {Weather.windInfo ? Weather.windInfo.direction : "N"} </p>
-                                    <p>Pollen Count: {Weather.pollenCount}</p>
+                                    <p>Precipitation: {weather.precipitation}%</p>
+                                    <p>Humidity: {weather.humidity}%</p>
+                                    <p>Wind: {weather.windInfo ? weather.windInfo.speed : 0} mph {weather.windInfo ? weather.windInfo.direction : "N"} </p>
+                                    <p>Pollen Count: {weather.pollenCount}</p>
                                 </div>
                             </div>
                             <div className="WeatherWidgetDaysContainer">
@@ -128,9 +101,9 @@ class WeatherWidget extends Component {
                             </div>
                         </div>
                         {this.state.cityWeather ? this.state.cityWeather.map((oneDayWeather, index) =>
-                                <VerticalDayItem key={index} weather={oneDayWeather} index={index} />
-                            ) : null}
-                        
+                            <VerticalDayItem key={index} weather={oneDayWeather} index={index} />
+                        ) : null}
+
                     </div>
                 }
             </div>
