@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ApiHandler from '../../API/ApiHandler';
 import './WeatherWidget.css';
 /* @return Temp to Farenheit */
-import { toFarenheit } from '../toFarenheit';
+import { toFarenheit } from '../Utils/toFarenheit';
 /* @return image depending on API response */
 import { weatherImage } from './getWeatherImage';
 import WeatherWidgetDayItem from './WeatherWidgetDayItem';

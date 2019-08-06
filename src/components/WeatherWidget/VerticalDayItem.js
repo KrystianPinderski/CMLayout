@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {toFarenheit} from '../toFarenheit';
+import {toFarenheit} from '../Utils/toFarenheit';
 import {weatherImageItem} from './getWeatherImage';
 import './VerticalDayItem.css'
 var moment = require('moment');
