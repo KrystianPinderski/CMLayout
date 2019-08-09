@@ -36,7 +36,7 @@ class WeatherWidget extends Component {
                 })
                 throw err
             })
-        await ApiHandler.getTodayWeather(1)
+        await ApiHandler.getTodayWeather(this.state.cityList[0].id)
             .then(cityWeather => {
                 this.setState({
                     cityWeather
